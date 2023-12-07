@@ -1,0 +1,27 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Gather the package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Check if resilio-sync package is installed
+      ansible.builtin.fail:
+        msg: "resilio-sync package is not installed"
+      when: "'resilio-sync' not in ansible_facts.packages"
+
+    - name: Gather service facts
+      ansible.builtin.service_facts:
+
+    - name: Check if resilio-sync service is running
+      ansible.builtin.fail:
+        msg: "resilio-sync service is not running"
+      when: "'resilio-sync' not in ansible_facts.services or ansible_facts.services['resilio-sync'].state != 'running'"
+
+    - name: Check port 8888
+      ansible.builtin.wait_for:
+        port: 8888
