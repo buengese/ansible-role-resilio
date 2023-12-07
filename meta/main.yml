@@ -9,13 +9,15 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - focal
+        - jammy
     - name: Debian
       versions:
         - buster
         - bullseye
     - name: Fedora
       versions:
-        - '35'
+        - '38'
+        - '39'
     - name: ArchLinux
       versions:
         - all
