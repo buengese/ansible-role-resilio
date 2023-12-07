@@ -20,7 +20,7 @@
     - name: Check if resilio-sync service is running
       ansible.builtin.fail:
         msg: "resilio-sync service is not running"
-      when: "'resilio-sync' not in ansible_facts.services or ansible_facts.services['resilio-sync'].state != 'running'"
+      when: "'resilio-sync.service' not in ansible_facts.services or ansible_facts.services['resilio-sync.service'].state != 'running'"
 
     - name: Check port 8888
       ansible.builtin.wait_for:
