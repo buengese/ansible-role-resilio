@@ -2,22 +2,35 @@
 galaxy_info:
   role_name: resilio
   author: buengese
-  description: Ansible Role - Resilio Sync
+  description: This role deploys the Home/Pro version of Resilio Sync, a file synchronization and sharing tool.
   license: MIT
   min_ansible_version: "2.4"
+  galaxy_tags:
+    - resilio
+    - sync
+    - file_sharing
+    - data_backup
+    - cloud_storage
   platforms:
     - name: Ubuntu
       versions:
-        - focal
-        - jammy
+        - focal    # Ubuntu 20.04
+        - jammy    # Ubuntu 22.04
     - name: Debian
       versions:
-        - buster
-        - bullseye
+        - buster   # Debian 10
+        - bullseye # Debian 11
+        - bookworm # Debian 12
     - name: Fedora
       versions:
-        - '38'
         - '39'
     - name: ArchLinux
       versions:
         - all
+    - name: Rocky
+      versions:
+        - "9.0"
+        - "9.1"
+        - "9.2"
+
+dependencies: []
